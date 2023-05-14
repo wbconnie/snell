@@ -185,19 +185,19 @@ backup_Download() {
 
 Download_beta(){
 	echo -e "${Info} 试图请求 测试版 Snell Server ……"
-	wget --no-check-certificate -N "https://dl.nssurge.com/snell/snell-server-v4.0.1-linux-${arch}.zip"
-	if [[ ! -e "snell-server-v4.0.1-linux-${arch}.zip" ]]; then
+	wget --no-check-certificate -N "https://dl.nssurge.com/snell/snell-server-v4.0.1-linux-aarch64.zip"
+	if [[ ! -e "snell-server-v4.0.1-linux-aarch64.zip" ]]; then
 		echo -e "${Error} Snell Server 测试版 下载失败！"
 		return 1 && exit 1
 	else
-		unzip -o "snell-server-v4.0.1-linux-${arch}.zip"
+		unzip -o "snell-server-v4.0.1-linux-aarch64.zip"
 	fi
 	if [[ ! -e "snell-server" ]]; then
 		echo -e "${Error} Snell Server 测试版 解压失败 !"
 		echo -e "${Error} Snell Server 测试版 安装失败 !"
 		return 1 && exit 1
 	else
-		rm -rf "snell-server-v4.0.1-linux-${arch}.zip"
+		rm -rf "snell-server-v4.0.1-linux-aarch64.zip"
 		chmod +x snell-server
 		mv -f snell-server "${FILE}"
 		echo "v4.0.1" > ${Now_ver_File}
